@@ -1,0 +1,6 @@
+com.example.dsaproject/
+├── model/
+│   ├── Graph.java          (Graph data structure + algorithms)
+│   ├── BusStop.java        (Bus stop entity)
+│   ├── Edge.java           (Route/connection between stops)
+│   └── RouteResult.java    (Result from pathfinding)

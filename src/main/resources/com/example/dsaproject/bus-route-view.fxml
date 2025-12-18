@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.dsaproject.BusRouteController"
+            prefHeight="700.0" prefWidth="900.0"
+            style="-fx-background-color: #f5f5f5;">
+
+    <!-- Header -->
+    <top>
+        <VBox style="-fx-background-color: #2c3e50; -fx-padding: 20;">
+            <Label text="Local Bus Route Finder" textFill="white">
+                <font>
+                    <Font name="System Bold" size="28.0"/>
+                </font>
+            </Label>
+            <Label text="Graph Traversal Algorithms (BFS, DFS, Dijkstra)" textFill="#ecf0f1">
+                <font>
+                    <Font size="14.0"/>
+                </font>
+            </Label>
+        </VBox>
+    </top>
+
+    <!-- Main Content -->
+    <center>
+        <HBox spacing="20.0" style="-fx-padding: 20;">
+
+            <!-- Left Panel - Input Controls -->
+            <VBox spacing="15.0" prefWidth="300"
+                  style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10;">
+
+                <Label text="Route Options" style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+
+                <VBox spacing="8">
+                    <Label text="Source Stop:" style="-fx-font-weight: bold;"/>
+                    <ComboBox fx:id="sourceComboBox" prefWidth="260" promptText="Select source..."/>
+                </VBox>
+
+                <VBox spacing="8">
+                    <Label text="Destination Stop:" style="-fx-font-weight: bold;"/>
+                    <ComboBox fx:id="destinationComboBox" prefWidth="260" promptText="Select destination..."/>
+                </VBox>
+
+                <VBox spacing="8">
+                    <Label text="Algorithm:" style="-fx-font-weight: bold;"/>
+                    <ComboBox fx:id="algorithmComboBox" prefWidth="260"/>
+                </VBox>
+
+                <Button text="Find Route" onAction="#onFindRoute" prefWidth="260" prefHeight="40"
+                        style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-size: 16; -fx-font-weight: bold; -fx-background-radius: 5;"/>
+
+                <Separator/>
+
+                <!-- Summary Cards -->
+                <VBox spacing="10">
+                    <Label text="Route Summary" style="-fx-font-size: 16; -fx-font-weight: bold;"/>
+
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="Distance:" style="-fx-font-weight: bold;"/>
+                        <Label fx:id="distanceLabel" text="--" style="-fx-text-fill: #3498db; -fx-font-size: 18; -fx-font-weight: bold;"/>
+                    </HBox>
+
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="Time:" style="-fx-font-weight: bold;"/>
+                        <Label fx:id="timeLabel" text="--" style="-fx-text-fill: #27ae60; -fx-font-size: 18; -fx-font-weight: bold;"/>
+                    </HBox>
+
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="Stops:" style="-fx-font-weight: bold;"/>
+                        <Label fx:id="stopsLabel" text="--" style="-fx-text-fill: #e74c3c; -fx-font-size: 18; -fx-font-weight: bold;"/>
+                    </HBox>
+                </VBox>
+            </VBox>
+
+            <!-- Right Panel - Route Details -->
+            <VBox spacing="15.0" HBox.hgrow="ALWAYS"
+                  style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10;">
+
+                <Label text="Route Details" style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+
+                <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS"
+                            style="-fx-background: white; -fx-background-color: white;">
+                    <VBox fx:id="routeDetailsBox" spacing="10.0" style="-fx-padding: 10;"/>
+                </ScrollPane>
+
+                <Label fx:id="statusLabel" text="Select source and destination to find route"
+                       style="-fx-text-fill: #7f8c8d; -fx-font-style: italic;"/>
+            </VBox>
+
+        </HBox>
+    </center>
+
+</BorderPane>
